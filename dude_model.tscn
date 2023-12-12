@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://3664ogikm6y0"]
+
+[ext_resource type="PackedScene" uid="uid://cixeye6r12otp" path="res://models/dude.blend" id="1_22pff"]
+[ext_resource type="Script" path="res://dude_model.gd" id="2_ht06h"]
+
+[node name="DudeModel" instance=ExtResource("1_22pff")]
+script = ExtResource("2_ht06h")
+
+[node name="Skeleton3D" parent="metarig" index="0"]
+bones/0/position = Vector3(1.21705e-09, 0.858658, -0.0173447)
+bones/0/rotation = Quaternion(0.0311267, 1.19152e-07, 3.71059e-09, 0.999515)
+bones/1/rotation = Quaternion(-0.0399412, -3.11666e-14, -9.52272e-09, 0.999202)
+bones/2/rotation = Quaternion(-0.00274281, 1.75417e-14, -6.53938e-10, 0.999996)
+bones/3/rotation = Quaternion(0.0200377, 1.19183e-07, 7.28813e-09, 0.999799)
+bones/4/rotation = Quaternion(-0.520129, -0.480622, -0.478336, 0.519291)
+bones/4/scale = Vector3(1, 1, 1)
+bones/5/rotation = Quaternion(-0.319531, 0.500211, -0.507441, 0.624654)
+bones/5/scale = Vector3(1, 1, 1)
+bones/6/rotation = Quaternion(0.293043, 0.0949974, -0.0214176, 0.951127)
+bones/7/rotation = Quaternion(-0.0263058, -0.0230328, -0.114665, 0.992789)
+bones/7/scale = Vector3(1, 1, 1)
+bones/8/rotation = Quaternion(-0.520129, 0.480622, 0.478336, 0.519291)
+bones/8/scale = Vector3(1, 1, 1)
+bones/9/rotation = Quaternion(-0.655093, -0.648999, 0.161457, 0.351546)
+bones/10/rotation = Quaternion(0.254633, -0.121701, 0.0565712, 0.95768)
+bones/10/scale = Vector3(1, 1, 1)
+bones/11/rotation = Quaternion(-0.0263058, 0.0230328, 0.114665, 0.992789)
+bones/12/rotation = Quaternion(0.996772, 0.0681254, 0.00175851, -0.0424377)
+bones/13/rotation = Quaternion(0.487376, 0.0363064, 0.0556527, 0.87066)
+bones/13/scale = Vector3(1, 1, 1)
+bones/14/rotation = Quaternion(-0.464838, -0.00201981, 0.00325861, 0.885388)
+bones/14/scale = Vector3(1, 1, 1)
+bones/15/rotation = Quaternion(0.886697, -0.0600335, 0.0322465, 0.457302)
+bones/16/rotation = Quaternion(0.334605, -0.0260306, -0.0599959, 0.940086)
+bones/17/rotation = Quaternion(-0.69986, 0.00350733, -0.00258338, 0.714267)
+bones/17/scale = Vector3(1, 1, 1)

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bx47p3k63k874"]
+
+[ext_resource type="Script" path="res://enemy.gd" id="1_g1t3p"]
+[ext_resource type="PackedScene" uid="uid://3664ogikm6y0" path="res://dude_model.tscn" id="2_pifdx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jlcvy"]
+
+[node name="Enemy" type="Area3D" groups=["gates"]]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_g1t3p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["gates"]]
+shape = SubResource("BoxShape3D_jlcvy")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.10804, 1.18816)
+text = "Test"
+font_size = 128
+
+[node name="DudeModel" parent="." instance=ExtResource("2_pifdx")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)

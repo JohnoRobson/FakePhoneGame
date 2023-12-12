@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxs5djygqi4x6"]
+
+[ext_resource type="Script" path="res://dude.gd" id="1_7fiih"]
+[ext_resource type="PackedScene" uid="uid://3664ogikm6y0" path="res://dude_model.tscn" id="2_j3mt4"]
+
+[node name="Dude" type="Node3D"]
+script = ExtResource("1_7fiih")
+
+[node name="DudeModel" parent="." instance=ExtResource("2_j3mt4")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)

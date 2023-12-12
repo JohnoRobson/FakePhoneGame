@@ -1,0 +1,101 @@
+[gd_scene load_steps=5 format=3 uid="uid://dgafl470cgj4i"]
+
+[ext_resource type="Script" path="res://world.gd" id="1_8h5le"]
+[ext_resource type="Script" path="res://spawner.gd" id="2_n6nlg"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_p0fj8"]
+size = Vector2(10, 60)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jtluo"]
+size = Vector3(10, 10, 10)
+
+[node name="World" type="Node3D"]
+script = ExtResource("1_8h5le")
+
+[node name="Floor" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -60)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.3, 0, 0, 0)
+mesh = SubResource("PlaneMesh_p0fj8")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.504618, 0.552379, -0.663504, 0, 0.768529, 0.639815, 0.863343, -0.322862, 0.387814, 0, 5, 0)
+
+[node name="Spawner" type="Node3D" parent="." node_paths=PackedStringArray("despawner")]
+script = ExtResource("2_n6nlg")
+despawner = NodePath("../Despawner")
+
+[node name="Despawner" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 14.0158)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Despawner"]
+shape = SubResource("BoxShape3D_jtluo")
+
+[node name="StartPanel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 239.0
+offset_top = 99.5
+offset_right = -239.0
+offset_bottom = -99.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="StartPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -70.0
+offset_top = -120.62
+offset_right = 70.0
+offset_bottom = -97.62
+grow_horizontal = 2
+grow_vertical = 2
+text = "Fake Phone Game"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="StartPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.5
+offset_top = -15.5
+offset_right = 20.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Play"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="StartPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.421
+anchor_top = 0.752
+anchor_right = 0.581
+anchor_bottom = 1.0
+offset_left = -271.754
+offset_top = -101.648
+offset_right = 269.406
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Move with left/right click
+
+Running into gates will change the number of dudes you have by the value on the gate.
+
+Running into enemies will remove the number of dudes you have by the health on the enemy
+
+Shooting enemies reduces their health"
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.744882, 0.667196, 0, -0.667196, 0.744882, 0, 7.06211, 8.81988)
+
+[connection signal="pressed" from="StartPanel/Button" to="." method="start_game"]
