@@ -7,7 +7,7 @@ var player: Player
 @onready var dead_label: Label = $DeadLabel
 @onready var win_label: Label = $WinLabel
 
-const POINTS_TO_WIN: int = 2	
+const POINTS_TO_WIN: int = 50
 
 func _ready() -> void:
 	dead_label.modulate = Color.TRANSPARENT
