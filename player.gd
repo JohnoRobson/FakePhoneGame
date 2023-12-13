@@ -90,7 +90,7 @@ func update_dudes(old_count: int, new_count: int) -> void:
 		for n: int in range(old_count, new_count):
 			var dude: Dude = preload("res://dude.tscn").instantiate()
 			add_child(dude)
-			dude.position = get_position_for_index(count)
+			dude.position = get_position_for_index(n + 1)
 			dudes.append(dude)
 
 func dead() -> void:
