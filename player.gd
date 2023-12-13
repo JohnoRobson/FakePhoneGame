@@ -68,8 +68,13 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir: Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	var direction: Vector3 = (transform.basis * Vector3(input_dir.x, 0.0, 0.0)).normalized()
-	if direction:
+	if direction and position.x >= 	-5.0 and position.x <= 5.0:
 		position.x += direction.x * SPEED * delta
+	
+	if position.x < -5.0:
+		position.x = -5.0
+	elif position.x > 5.0:
+		position.x = 5.0
 
 func update_dudes(old_count: int, new_count: int) -> void:
 	label.text = str(count)
