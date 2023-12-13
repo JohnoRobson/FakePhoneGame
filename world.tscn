@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dgafl470cgj4i"]
+[gd_scene load_steps=9 format=3 uid="uid://dgafl470cgj4i"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_8h5le"]
 [ext_resource type="Script" path="res://spawner.gd" id="2_n6nlg"]
+[ext_resource type="Script" path="res://start_panel.gd" id="3_jtlpk"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_p0fj8"]
 size = Vector2(10, 60)
@@ -13,6 +14,11 @@ size = Vector3(10, 0.5, 10)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jtluo"]
 size = Vector3(10, 10, 10)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qhdc3"]
+font_size = 120
+outline_size = 30
+outline_color = Color(0, 0, 0, 1)
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_8h5le")
@@ -55,6 +61,7 @@ offset_right = -239.0
 offset_bottom = -99.5
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("3_jtlpk")
 
 [node name="Label" type="Label" parent="StartPanel"]
 layout_mode = 1
@@ -100,15 +107,51 @@ offset_right = 269.406
 offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "Move with left/right click
+text = "* Move with left/right click
 
-Running into gates will change the number of dudes you have by the value on the gate.
+* Running into gates will change the number of dudes you have by the value on the gate.
+* Running into enemies will remove the number of dudes you have by the health on the enemy
+* Shooting enemies reduces their health
 
-Running into enemies will remove the number of dudes you have by the health on the enemy
-
-Shooting enemies reduces their health"
+* Get 50 dudes to win!"
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.744882, 0.667196, 0, -0.667196, 0.744882, 0, 7.06211, 8.81988)
+
+[node name="DeadLabel" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -275.0
+offset_top = -102.5
+offset_right = 275.0
+offset_bottom = 102.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "WASTED"
+label_settings = SubResource("LabelSettings_qhdc3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WinLabel" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -275.0
+offset_top = -102.5
+offset_right = 275.0
+offset_bottom = 102.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "WINNER!"
+label_settings = SubResource("LabelSettings_qhdc3")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="StartPanel/Button" to="." method="start_game"]

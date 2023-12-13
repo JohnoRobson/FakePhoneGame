@@ -5,6 +5,7 @@ extends Node3D
 @onready var label: Label3D = $Label3D
 
 signal player_dead()
+signal dudes_updated(count: int)
 
 var dudes: Array[Dude] = []
 
@@ -72,6 +73,7 @@ func _physics_process(delta: float) -> void:
 
 func update_dudes(old_count: int, new_count: int) -> void:
 	label.text = str(count)
+	dudes_updated.emit(new_count)
 	if new_count <= 0:
 		dead()
 
@@ -102,5 +104,6 @@ func dead() -> void:
 
 	for dude: Dude in dudes:
 		dude.dead()
+	dudes.clear()
 	await get_tree().create_timer(2.5).timeout
 	queue_free()
