@@ -82,7 +82,7 @@ func update_dudes(old_count: int, new_count: int) -> void:
 		for n: int in range(old_count, new_count, -1):
 			if n >	 0:
 				var dude: Dude = dudes.pop_back()
-				dude.queue_free()
+				dude.dead()
 			else:
 				dead()
 				break
@@ -99,5 +99,8 @@ func dead() -> void:
 	area.hide()
 	area.monitorable = false
 	area.monitoring = false
-	await get_tree().create_timer(2.0).timeout
+
+	for dude: Dude in dudes:
+		dude.dead()
+	await get_tree().create_timer(2.5).timeout
 	queue_free()

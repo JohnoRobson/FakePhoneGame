@@ -1,10 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://dgafl470cgj4i"]
+[gd_scene load_steps=7 format=3 uid="uid://dgafl470cgj4i"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_8h5le"]
 [ext_resource type="Script" path="res://spawner.gd" id="2_n6nlg"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_p0fj8"]
 size = Vector2(10, 60)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ea2hl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3ko1l"]
+size = Vector3(10, 0.5, 10)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jtluo"]
 size = Vector3(10, 10, 10)
@@ -18,6 +23,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -60)
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.3, 0, 0, 0)
 mesh = SubResource("PlaneMesh_p0fj8")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 59.8208)
+physics_material_override = SubResource("PhysicsMaterial_ea2hl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.23999, 0)
+shape = SubResource("BoxShape3D_3ko1l")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.504618, 0.552379, -0.663504, 0, 0.768529, 0.639815, 0.863343, -0.322862, 0.387814, 0, 5, 0)
